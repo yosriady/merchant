@@ -15,7 +15,7 @@
       <tr>
         <td><%= image_tag "products/#{product.image_url}" %></td>
         <td><%= link_to product.title.titleize, product %></td>
-        <td><%= cents_price(product.price) %></td>
+        <td><%= number_to_currency product.price %></td>
         <td><%= product.description %></td>
         <td><%= print_stock(product.stock) %></td>
       </tr>

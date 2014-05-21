@@ -1,15 +1,9 @@
 class Product < ActiveRecord::Base
-    after_validation :cents_to_dollars
     validates_numericality_of :price
+    validates :stock, numericality: {greater_than_or_equal_to: 0, only_integer: true}
 
     def price=(input)
         input.to_s.delete!("$")
         super
-    end
-
-    def cents_to_dollars
-        if self.price
-            self.price = price.to_f/100
-        end
     end
 end
