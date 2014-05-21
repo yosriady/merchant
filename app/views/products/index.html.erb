@@ -7,6 +7,8 @@
       <th>Price</th>
       <th>Description</th>
       <th>Image url</th>
+      <th>Stock</th>
+      <th>Buy</th>
     </tr>
   </thead>
 
@@ -18,6 +20,7 @@
         <td><%= number_to_currency product.price %></td>
         <td><%= product.description %></td>
         <td><%= print_stock(product.stock) %></td>
+        <td><%= button_to "Add to Cart", order_items_path(product_id: product.id) %></td>
       </tr>
     <% end %>
   </tbody>
