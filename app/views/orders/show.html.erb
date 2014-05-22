@@ -17,6 +17,7 @@
   <tr>
     <th>Title</th>
     <th>Quantity</th>
+    <th>Stock</th>
     <th>Unit Price</th>
     <th>Subtotal</th>
   </tr>
@@ -24,6 +25,7 @@
   <tr>
     <td><%= item.product.title %></td>
     <td><%= link_to item.quantity, edit_order_item_path(item) %></td>
+    <td><%= print_stock(item.product.stock, item.quantity) %></td>
     <td><%= number_to_currency item.product.price %></td>
     <td><%= number_to_currency item.subtotal %></td>
     <td><%= image_tag "products/#{item.product.image_url}" %></td>
