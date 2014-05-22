@@ -23,7 +23,7 @@
   <% @order.order_items.each do |item| %>
   <tr>
     <td><%= item.product.title %></td>
-    <td><%= item.quantity %></td>
+    <td><%= link_to item.quantity, edit_order_item_path(item) %></td>
     <td><%= number_to_currency item.product.price %></td>
     <td><%= number_to_currency item.subtotal %></td>
     <td><%= image_tag "products/#{item.product.image_url}" %></td>
