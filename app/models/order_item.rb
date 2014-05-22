@@ -1,5 +1,6 @@
 class OrderItem < ActiveRecord::Base
     validates_presence_of :product_id, :order_id
+    validates :quantity, numericality: {greater_than: 0, only_integer: true}
 
     belongs_to :order
     belongs_to :product
