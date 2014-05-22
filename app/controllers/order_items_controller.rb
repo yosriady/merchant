@@ -2,14 +2,6 @@ class OrderItemsController < ApplicationController
   before_action :set_order_item, only: [:show, :edit, :update, :destroy]
   before_action :load_order, only: [:create]
 
-  def load_order
-    @order = Order.find_or_initialize_by(id: session[:order_id], status: "unsubmitted")
-    if @order.new_record?
-      @order.save!
-      session[:order_id] = @order.id
-    end
-  end
-
   # GET /order_items/1/edit
   def edit
   end
