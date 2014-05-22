@@ -5,7 +5,11 @@ class OrderItem < ActiveRecord::Base
     belongs_to :product
 
     def subtotal
-        quantity * self.product.price
+        if quantity && self.product.price
+            quantity * self.product.price
+        else
+            0
+        end
     end
 
 end
