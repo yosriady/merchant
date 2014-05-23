@@ -1,7 +1,5 @@
-<h1>Your Order</h1>
-<%= link_to "Empty Cart", @order, data: { confirm: 'Are you sure?' }, method: :delete %>
+<h1>Your Order was Confirmed</h1>
 
-<%= form_for @order do |f| %>
 <table>
   <tr>
     <th>Customer</th>
@@ -30,24 +28,10 @@
     <td><%= number_to_currency item.product.price %></td>
     <td><%= number_to_currency item.subtotal %></td>
     <td><%= image_tag "products/#{item.product.image_url}" %></td>
-    <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
   <% end %>
 
-    <tr>
-      <th>Shipping To:</th>
-        <td>
-            <%= f.select :address_id, current_user.addresses.collect{|a| [a.to_s, a.id]} %>
-        </td>
-        <td>
-            <%= link_to 'Add Address', new_address_path %>
-        </td>
-    </tr>
 
 </table>
 <p>Order Total: <%= number_to_currency @order.total %></p>
-
-<%= f.submit "Submit Order" %>
-
-<% end %>
 

@@ -3,7 +3,6 @@ class Order < ActiveRecord::Base
     belongs_to :user
     belongs_to :address
 
-
     def total
         sum = 0
         order_items.each {|item| sum += item.subtotal}
